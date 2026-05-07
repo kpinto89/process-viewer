@@ -22,6 +22,65 @@ h1 {
     margin: 0;
 }
 
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 18px;
+    align-items: center;
+}
+
+.controls input,
+.controls select,
+.controls button,
+.api-link {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
+    background: #ffffff;
+    color: #111827;
+    text-decoration: none;
+}
+
+.controls input {
+    min-width: 280px;
+    flex: 1;
+}
+
+.controls button {
+    cursor: pointer;
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.summary-grid article {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.summary-grid h2 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.summary-grid p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -39,6 +98,26 @@ td {
 th {
     background: #f9fafb;
     font-weight: 600;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.chart-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.chart-card h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #374151;
 }
 
 .status-ok {

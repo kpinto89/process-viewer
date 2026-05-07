@@ -1,6 +1,8 @@
 package com.demo;
 
 import com.demo.model.ProcessInfo;
+import com.demo.model.ProcessQuery;
+import com.demo.model.ProcessResult;
 import com.demo.service.ProcessService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,14 @@ class ProcessViewerApplicationTests {
     void listProcessesReturnsCollection() {
         List<ProcessInfo> processes = processService.listProcesses();
         assertNotNull(processes);
+    }
+
+    @Test
+    void getProcessesReturnsSummaryAndList() {
+        ProcessResult result = processService.getProcesses(new ProcessQuery("", "pid", "asc", 5));
+        assertNotNull(result);
+        assertNotNull(result.summary());
+        assertNotNull(result.processes());
     }
 }
 
