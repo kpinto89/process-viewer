@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Viewer</title>
+    <meta http-equiv="refresh" content="5">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Process Viewer</h1>
+        <p>Auto-refreshes every 5 seconds.</p>
+    </header>
+
+    <table>
+        <thead>
+        <tr>
+            <th>PID</th>
+            <th>User</th>
+            <th>Command</th>
+            <th>Arguments</th>
+            <th>Started</th>
+            <th>Alive</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(processes)}">
+            <td colspan="6">No processes available.</td>
+        </tr>
+        <tr th:each="process : ${processes}">
+            <td th:text="${process.pid}">1234</td>
+            <td th:text="${process.user}">user</td>
+            <td th:text="${process.command}">java</td>
+            <td th:text="${process.arguments}">-jar app.jar</td>
+            <td th:text="${process.startTime}">2026-01-01 10:00:00</td>
+            <td>
+                <span th:text="${process.alive ? 'Yes' : 'No'}"
+                      th:classappend="${process.alive ? 'status-ok' : 'status-dead'}">Yes</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
